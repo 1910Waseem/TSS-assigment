@@ -1,0 +1,19 @@
+backend:
+  replicas: 1
+  image:
+    repository: waseemakram/two-tier-app
+    tag: latest
+  env:
+    - name: MYSQL_HOST
+      value: mysql
+    - name: MYSQL_USER
+      value: admin
+    - name: MYSQL_PASSWORD
+      value: admin
+    - name: MYSQL_DB
+      value: myDb
+  volumePath: /home/ubuntu/task/message.sql
+
+service:
+  type: NodePort
+  nodePort: 30000
